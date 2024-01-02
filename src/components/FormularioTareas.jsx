@@ -7,10 +7,13 @@ const FormularioTareas = () => {
 
   const [tarea, setTarea] = useState('')
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
 
   return (
     <>
-    <Form className="text-center">
+    <Form className="text-center" onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label className="text-light">Tareas 📝</Form.Label>
         <Form.Control 
