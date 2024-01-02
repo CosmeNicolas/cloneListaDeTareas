@@ -1,8 +1,7 @@
-# React + Vite
+# React ToDo - Lista de Tareas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Realice un pequeño proyecto sobre una lista de tareas usando hooks de react y vite para inicilizar el mismo y guardandolos en el localStorage para no perder las tareas generadas.
 
-Currently, two official plugins are available:
+- [GoogleFont](https://fonts.google.com/)
+- [Bootstraps](https://react-bootstrap.github.io/) 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
