@@ -2,14 +2,15 @@ import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import ListaTareas from "./ListaTareas";
 
-
-
 const FormularioTareas = () => {
 
-  const [tarea, setTarea] = useState('')
+  const [tarea, setTarea] = useState('');
+  const [tareas, setTareas] = useState([])
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setTareas([...tareas,tarea])
+    setTarea('')
   }
 
   return (
@@ -29,7 +30,7 @@ const FormularioTareas = () => {
       <Button type="submit" variant="danger" className="letras mt-1" >
         Crear 
       </Button>
-      <ListaTareas/>
+      <ListaTareas tareas={tareas}/>
     </Form>
     </>
   );
