@@ -7,11 +7,17 @@ const FormularioTareas = () => {
   const [tarea, setTarea] = useState('');
   const [tareas, setTareas] = useState([])
 
+  const borrarTarea = (nombreTarea) =>{
+    const copiarTareas = tareas.filter((tarea)=> tarea !== nombreTarea);
+    setTareas(copiarTareas)
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     setTareas([...tareas,tarea])
     setTarea('')
   }
+
 
   return (
     <>
@@ -30,7 +36,7 @@ const FormularioTareas = () => {
       <Button type="submit" variant="danger" className="letras mt-1" >
         Crear 
       </Button>
-      <ListaTareas tareas={tareas}/>
+      <ListaTareas tareas={tareas} borrarTarea={borrarTarea}/>
     </Form>
     </>
   );
