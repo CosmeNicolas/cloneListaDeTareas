@@ -10,7 +10,7 @@ function App() {
     <Container className='main'>
       <h1 className='text-center text-light'>Lista Tareas</h1>
     </Container>
-     <Footer></Footer>
+     <Footer/>
     </>
   )
 }
