@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import ListaTareas from "./ListaTareas";
 
 
 
@@ -28,6 +29,7 @@ const FormularioTareas = () => {
       <Button type="submit" variant="danger" className="letras mt-1" >
         Crear 
       </Button>
+      <ListaTareas/>
     </Form>
     </>
   );
