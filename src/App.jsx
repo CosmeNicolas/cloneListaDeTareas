@@ -9,7 +9,7 @@ function App() {
   return (
     <>
     <Container className='main'>
-      <h1 className='text-center text-light'>Lista Tareas</h1>
+      <h1 className='letras text-center text-light mt-5'>Lista Tareas</h1>
       <FormularioTareas/>
     </Container>
      <Footer/>

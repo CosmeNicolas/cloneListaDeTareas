@@ -14,8 +14,8 @@ const FormularioTareas = () => {
         maxLength={50}
         />
       </Form.Group>
-      <Button variant="danger" >
-        Crear Tarea
+      <Button variant="danger" className="letras mt-1" >
+        Crear 
       </Button>
     </Form>
     </>
