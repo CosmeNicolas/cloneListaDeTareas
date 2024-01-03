@@ -1,7 +1,7 @@
 import { ListGroup } from "react-bootstrap";
 import ItemTarea from "./ItemTarea";
 
-const ListaTareas = ({tareas, borrarTarea, editarTarea}) => {
+const ListaTareas = ({tareas, borrarTarea}) => {
   return (
       <ListGroup className="mt-2">
     {
@@ -9,8 +9,7 @@ const ListaTareas = ({tareas, borrarTarea, editarTarea}) => {
       <ItemTarea 
       key={posicionTarea} 
       nombreTarea={elementoTarea}
-      borrarTarea={borrarTarea}
-      editarTarea={editarTarea}>
+      borrarTarea={borrarTarea}>
         Tarea 1
       </ItemTarea>)
     }
