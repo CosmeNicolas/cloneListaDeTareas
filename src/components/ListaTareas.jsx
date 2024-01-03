@@ -4,7 +4,6 @@ import ItemTarea from "./ItemTarea";
 const ListaTareas = ({tareas, borrarTarea}) => {
   return (
       <ListGroup className="mt-2">
-
     {
       tareas.map((elementoTarea, posicionTarea)=>
       <ItemTarea 
@@ -14,9 +13,6 @@ const ListaTareas = ({tareas, borrarTarea}) => {
         Tarea 1
       </ItemTarea>)
     }
-
-      
-
     </ListGroup>
   );
 };

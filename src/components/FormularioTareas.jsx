@@ -8,44 +8,40 @@ const FormularioTareas = () => {
   const guardarTareas = JSON.parse(localStorage.getItem('listaDeTareas')) || [];
   const [tareas, setTareas] = useState(guardarTareas);
 
+  useEffect(() => {
+    localStorage.setItem('listaDeTareas', JSON.stringify(tareas))
+  }, [tareas])
 
- useEffect(() => {
-   localStorage.setItem('listaDeTareas',JSON.stringify(tareas))
- }, [tareas]) 
- 
-
-
-  const borrarTarea = (nombreTarea) =>{
-    const copiarTareas = tareas.filter((tarea)=> tarea !== nombreTarea);
+  const borrarTarea = (nombreTarea) => {
+    const copiarTareas = tareas.filter((tarea) => tarea !== nombreTarea);
     setTareas(copiarTareas)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setTareas([...tareas,tarea])
+    setTareas([...tareas, tarea])
     setTarea('')
   }
 
-
   return (
     <>
-    <Form className="text-center" onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label className="text-light">Tareas 📝</Form.Label>
-        <Form.Control 
-        type="text"
-        placeholder="ingresar Tarea: ej Tarea 1"
-        minLength={3}
-        maxLength={50}
-        onChange={(e)=>{setTarea(e.target.value)}}
-        value={tarea}
-        />
-      </Form.Group>
-      <Button type="submit" variant="danger" className="letras mt-1" >
-        Crear 
-      </Button>
-      <ListaTareas tareas={tareas} borrarTarea={borrarTarea}/>
-    </Form>
+      <Form className="text-center" onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label className="text-light">Tareas 📝</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="ingresar Tarea: ej Tarea 1"
+            minLength={3}
+            maxLength={50}
+            onChange={(e) => { setTarea(e.target.value) }}
+            value={tarea}
+          />
+        </Form.Group>
+        <Button type="submit" variant="danger" className="letras mt-1" >
+          Crear
+        </Button>
+        <ListaTareas tareas={tareas} borrarTarea={borrarTarea} />
+      </Form>
     </>
   );
 };
