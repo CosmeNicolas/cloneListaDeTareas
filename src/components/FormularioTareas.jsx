@@ -6,6 +6,7 @@ const FormularioTareas = () => {
 
   const [tarea, setTarea] = useState('');
   const guardarTareas = JSON.parse(localStorage.getItem('listaDeTareas')) || [];
+  const [editar, setEditar] = useState('')
   const [tareas, setTareas] = useState(guardarTareas);
 
   useEffect(() => {
@@ -15,6 +16,10 @@ const FormularioTareas = () => {
   const borrarTarea = (nombreTarea) => {
     const copiarTareas = tareas.filter((tarea) => tarea !== nombreTarea);
     setTareas(copiarTareas)
+  }
+
+  const editarTarea = ()=>{
+
   }
 
   const handleSubmit = (e) => {
@@ -40,7 +45,7 @@ const FormularioTareas = () => {
         <Button type="submit" variant="danger" className="letras mt-1" >
           Crear
         </Button>
-        <ListaTareas tareas={tareas} borrarTarea={borrarTarea} />
+        <ListaTareas tareas={tareas} borrarTarea={borrarTarea} editarTarea={editarTarea} />
       </Form>
     </>
   );
