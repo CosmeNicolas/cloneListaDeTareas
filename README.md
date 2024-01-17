@@ -35,5 +35,5 @@ Este comando iniciará el servidor de desarrollo proporcionado por Vite.
 
 ### Link Deploy del Proyecto 🥂
 
-- [ListaTareasReactAlert](https://listatareas-react-alert.netlify.app/) 
+- [ListaTareasReactLocalStorage](https://listatareas-react-alert.netlify.app/) 
 
