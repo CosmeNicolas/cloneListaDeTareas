@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import ListaTareas from "./ListaTareas";
+import Swal from 'sweetalert2'
 
 const FormularioTareas = () => {
 
@@ -15,12 +16,33 @@ const FormularioTareas = () => {
   const borrarTarea = (nombreTarea) =>{
     const copiarTareas = tareas.filter((tarea)=> tarea !== nombreTarea);
     setTareas(copiarTareas)
+    Swal.fire({
+      icon: 'success',
+      title: 'Éxito',
+      text: 'Tarea Borrada con éxito',
+    })
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    if(tarea.trim() === ''){
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Por favor, ingresa una tarea',
+      });
+      return
+    }
+
     setTareas([...tareas,tarea])
     setTarea('')
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Éxito',
+      text: 'Tarea agregada con éxito',
+    })
   }
 
   return (
