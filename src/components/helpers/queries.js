@@ -1,0 +1,1 @@
+const URI_TAREAS=import.meta.env.VITE_API_TAREAS

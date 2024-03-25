@@ -6,7 +6,7 @@ import Swal from 'sweetalert2'
 const FormularioTareas = () => {
 
   const [tarea, setTarea] = useState('');
-  const [tareas, setTareas] = useState(guardarTareas);
+  const [tareas, setTareas] = useState([]);
 
  useEffect(() => {
   
