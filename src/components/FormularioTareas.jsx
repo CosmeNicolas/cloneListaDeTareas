@@ -2,17 +2,31 @@ import { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import ListaTareas from "./ListaTareas";
 import Swal from 'sweetalert2'
+import { listarTareasAPI } from "./helpers/queries";
 
 const FormularioTareas = () => {
-
   const [tarea, setTarea] = useState('');
   const [tareas, setTareas] = useState([]);
 
  useEffect(() => {
-  
- }, [tareas]) 
+  listarTareasInicio()
+ }, []) 
+
+ const listarTareasInicio = async()=>{
+  try {
+    const respuesta = await listarTareasAPI()
+    if(respuesta.status === 200) {
+      const tareasInicio = await respuesta
+      setTareas(tareasInicio)
+    } 
+    const tareasInicio = await respuesta
+    setTareas(tareasInicio)
+  } catch (error) {
+    console.log(error)
+  }
+ }
  
-  const borrarTarea = (nombreTarea) =>{
+ /*  const borrarTarea = (nombreTarea) =>{
     const copiarTareas = tareas.filter((tarea)=> tarea !== nombreTarea);
     setTareas(copiarTareas)
     Swal.fire({
@@ -20,7 +34,7 @@ const FormularioTareas = () => {
       title: 'Éxito',
       text: 'Tarea Borrada con éxito',
     })
-  }
+  } */
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -62,7 +76,7 @@ const FormularioTareas = () => {
       <Button type="submit" variant="danger" className="letras mt-1" >
         Crear 
       </Button>
-      <ListaTareas tareas={tareas} borrarTarea={borrarTarea}/>
+      <ListaTareas tareas={tareas}  /* borrarTarea={borrarTarea} *//>
     </Form>
     </>
   );
