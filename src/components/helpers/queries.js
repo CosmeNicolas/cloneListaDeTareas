@@ -1,5 +1,4 @@
 const URI_TAREAS=import.meta.env.VITE_API_TAREAS
-
 console.log(URI_TAREAS)
 
 export const listarTareasAPI = async()=>{
@@ -10,4 +9,29 @@ export const listarTareasAPI = async()=>{
     } catch (error) {
         console.log(error)
     }
+}
+
+export const obtenerColorAPI = async(req, res)=>{
+    try {
+        const respuesta = await fetch(`${URI_TAREAS}/${id}`);
+        return respuesta;
+      } catch (error) {
+        console.log(error);
+      }
+}
+
+export const crearTareaAPI =async(nuevaTarea)=>{
+    try {
+        const respuesta = await fetch(URI_TAREAS,{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body:JSON.stringify({nombreTarea: nuevaTarea}),
+        });
+        console.log(respuesta);
+        return respuesta;
+      } catch (error) {
+        console.log(error);
+      }
 }

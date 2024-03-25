@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import ListaTareas from "./ListaTareas";
 import Swal from 'sweetalert2'
-import { listarTareasAPI } from "./helpers/queries";
+import { crearTareaAPI, listarTareasAPI } from "./helpers/queries.js";
 
 const FormularioTareas = () => {
   const [tarea, setTarea] = useState('');
@@ -36,7 +36,7 @@ const FormularioTareas = () => {
     })
   } */
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault()
 
     if(tarea.trim() === ''){
@@ -48,15 +48,30 @@ const FormularioTareas = () => {
       return
     }
 
-    setTareas([...tareas,tarea])
-    setTarea('')
-
-    Swal.fire({
-      icon: 'success',
-      title: 'Éxito',
-      text: 'Tarea agregada con éxito',
-    })
+    try {
+      const respuesta =await crearTareaAPI(tarea)
+      if (respuesta.status === 201) {
+        const tareaCargadas = await listarTareasAPI();
+        setTareas(tareaCargadas);
+        setTarea('')
+        Swal.fire({
+          icon: 'success',
+          title: 'Éxito',
+          text: 'Tarea agregada con éxito',
+        })
+      }
+    } catch (error) {
+      console.log(error)
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Hubo un problema al guardar la tarea",
+      });
+    }
   }
+
+  
+
 
   return (
     <>
@@ -74,7 +89,7 @@ const FormularioTareas = () => {
         />
       </Form.Group>
       <Button type="submit" variant="danger" className="letras mt-1" >
-        Crear 
+        Crear Tarea
       </Button>
       <ListaTareas tareas={tareas}  /* borrarTarea={borrarTarea} *//>
     </Form>
