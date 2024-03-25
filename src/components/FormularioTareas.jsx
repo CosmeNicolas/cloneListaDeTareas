@@ -6,11 +6,10 @@ import Swal from 'sweetalert2'
 const FormularioTareas = () => {
 
   const [tarea, setTarea] = useState('');
-  const guardarTareas = JSON.parse(localStorage.getItem('listaDeTareas')) || [];
   const [tareas, setTareas] = useState(guardarTareas);
 
  useEffect(() => {
-   localStorage.setItem('listaDeTareas',JSON.stringify(tareas))
+  
  }, [tareas]) 
  
   const borrarTarea = (nombreTarea) =>{
