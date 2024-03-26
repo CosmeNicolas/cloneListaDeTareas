@@ -12,7 +12,7 @@ Realice un proyecto de lista de tareas con validacion del formulario, cada vez q
 
 Abre tu terminal y ejecuta el sigueinte comando para clonar el repositorio.
 
-- git clone (https://github.com/CosmeNicolas/cloneListaDeTareas.git)
+- git clone https://github.com/CosmeNicolas/cloneListaDeTareas.git
 
 - cd reactTodo
 
