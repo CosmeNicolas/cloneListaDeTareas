@@ -7,6 +7,7 @@ import { crearTareaAPI, listarTareasAPI } from "./helpers/queries.js";
 const FormularioTareas = () => {
   const [tarea, setTarea] = useState('');
   const [tareas, setTareas] = useState([]);
+  const [cargando, setCargando]= useState(true)
 
  useEffect(() => {
   listarTareasInicio()
@@ -21,20 +22,11 @@ const FormularioTareas = () => {
     } 
     const tareasInicio = await respuesta
     setTareas(tareasInicio)
+    setCargando(false)
   } catch (error) {
     console.log(error)
   }
  }
- 
- /*  const borrarTarea = (nombreTarea) =>{
-    const copiarTareas = tareas.filter((tarea)=> tarea !== nombreTarea);
-    setTareas(copiarTareas)
-    Swal.fire({
-      icon: 'success',
-      title: 'Éxito',
-      text: 'Tarea Borrada con éxito',
-    })
-  } */
 
   const handleSubmit = async(e) => {
     e.preventDefault()
@@ -70,9 +62,6 @@ const FormularioTareas = () => {
     }
   }
 
-  
-
-
   return (
     <>
     <Form className="text-center" onSubmit={handleSubmit}>
@@ -88,10 +77,16 @@ const FormularioTareas = () => {
         value={tarea}
         />
       </Form.Group>
-      <Button type="submit" variant="danger" className="letras mt-1" >
+      <Button type="submit" variant="dark" className="letras mt-1" >
         Crear Tarea
       </Button>
-      <ListaTareas tareas={tareas}  /* borrarTarea={borrarTarea} *//>
+      <ListaTareas tareas={tareas}  setTareas={setTareas}/>
+        {
+          cargando &&
+           <div className="spinner-border text-light text-center" role="status">
+            <span className="visually-hidden">Cargando Tareas...</span>
+           </div>
+        }
     </Form>
     </>
   );

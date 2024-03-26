@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 
+
 body{
   background: rgb(36, 0, 0);
     background: linear-gradient(180deg, rgba(36, 0, 0, 1) 0%, rgba(82, 5, 8, 1) 75%, rgba(0, 0, 0, 1) 99%);
@@ -17,4 +18,9 @@ body{
 
 .letras{
   font-family: 'Rock Salt', cursive;
+}
+
+.letras-tareas{
+  font-family:monospace;
+  font-weight: 800;
 }

@@ -11,7 +11,7 @@ export const listarTareasAPI = async()=>{
     }
 }
 
-export const obtenerColorAPI = async(req, res)=>{
+export const obtenerTareaAPI = async(req, res)=>{
     try {
         const respuesta = await fetch(`${URI_TAREAS}/${id}`);
         return respuesta;
@@ -28,6 +28,18 @@ export const crearTareaAPI =async(nuevaTarea)=>{
             "Content-Type": "application/json",
           },
           body:JSON.stringify({nombreTarea: nuevaTarea}),
+        });
+        console.log(respuesta);
+        return respuesta;
+      } catch (error) {
+        console.log(error);
+      }
+}
+
+export const borrarTareaAPI = async(id)=>{
+    try {
+        const respuesta = await fetch(`${URI_TAREAS}/${id}`, {
+          method: "DELETE",
         });
         console.log(respuesta);
         return respuesta;
