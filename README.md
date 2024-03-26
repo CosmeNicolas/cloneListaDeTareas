@@ -1,4 +1,4 @@
-# React ToDo - Lista de Tareas - LocalStorage
+# FrontEnd React ToDo - Lista de Tareas - LocalStorage
 Realice un proyecto de lista de tareas con validacion del formulario, cada vez que ingresamos una tarea , se muestra un alert informando que esa tarea se agrego con exito, y caso contrario, sucede lo mismo pero indicando que se debe ingresar una tarea , al igual forma cuando borramos la tarea, al no borrar la tarea se guarda en el localStorage.
 
 ## Framework y Estilos 🛠️
